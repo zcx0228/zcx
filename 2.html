@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- saved from url=(0092)file:///C:/Users/Administrator/Desktop/%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/2.html. -->
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    #scroll-images img{
+        display: block;
+        position: relative;
+        top: 0px;
+        left: 0px;
+    }
+    </style></head>
+    
+<body>
+    <div id="scroll-images">
+     <img src="C:\Users\Administrator\Desktop\bbb\img\1.jpg" alt ="">
+     <img src="C:\Users\Administrator\Desktop\bbb\img\2.jpg" alt ="">
+       <img src="C:\Users\Administrator\Desktop\bbb\img\3.jpg" alt="">
+        <img src="C:\Users\Administrator\Desktop\bbb\img\4.jpg" alt="">
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script>
+     var index = 11;
+     var z_index = 999;
+     function job1(){
+         $($("#scrool-images img")[index]).fadeOut(3000,function(){
+             z_index = z_index -1;
+             $(this).css({zIndex: z_index});
+             $(this).show();
+             index =index -1;
+             if(index < 0){
+                 index = 11;
+             }
+         });
+     }
+       $(document).ready(function(){
+           var $images = $("#scroll-images img");
+           for (var i = 0; i < $images.length; i++){
+               $($images[i]).css({top:-i*480 + 'px',zIndex:999});
+           }
+           setInterval(job1,4000);
+       })
+
+    </script>
+
+</body></html>
